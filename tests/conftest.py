@@ -54,11 +54,18 @@ def email_service():
     return email_service
 
 
+@pytest.fixture
+def minio_service():
+    mock_service = AsyncMock()
+    mock_service.upload_profile_picture.return_value = "http://minio:9000/test-bucket/test-file.jpg"
+    return mock_service
+
 # this is what creates the http client for your api tests
 @pytest.fixture(scope="function")
-async def async_client(db_session):
+async def async_client(db_session, minio_service):
     async with AsyncClient(app=app, base_url="http://testserver") as client:
         app.dependency_overrides[get_db] = lambda: db_session
+        app.dependency_overrides[get_minio_service] = lambda: minio_service
         try:
             yield client
         finally:
