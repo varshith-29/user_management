@@ -206,7 +206,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), session: Async
 
     user = await UserService.login_user(session, form_data.username, form_data.password)
     if user:
-        access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+        access_token_expires = timedelta(minutes=settings.jwt_token_expire_minutes)
 
         access_token = create_access_token(
             data={"sub": user.email, "role": str(user.role.name)},
@@ -223,7 +223,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), session: Async
 
     user = await UserService.login_user(session, form_data.username, form_data.password)
     if user:
-        access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+        access_token_expires = timedelta(minutes=settings.jwt_token_expire_minutes)
 
         access_token = create_access_token(
             data={"sub": user.email, "role": str(user.role.name)},
