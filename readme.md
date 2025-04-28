@@ -5,3 +5,4 @@
 ## Features Implemented
 
 1. Profile Picture Upload with Minio - Done
+2. 
