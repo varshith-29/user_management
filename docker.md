@@ -33,36 +33,36 @@ This guide will walk you through the process of using Docker Compose to manage a
 
 ### Running Database Migrations
 - Execute database migrations within the FastAPI container:
-  - **`docker-compose exec fastapi alembic upgrade head`**
+  - **`docker compose exec fastapi alembic upgrade head`**
   - This command runs the Alembic upgrade command to apply migrations to your PostgreSQL database.
 
 ### Running Tests with Pytest
 - To run tests inside the FastAPI container, ensuring they interact with the PostgreSQL service:
-  - **`docker-compose exec fastapi pytest`**
+  - **`docker compose exec fastapi pytest`**
   - This command runs all tests defined in your FastAPI application.
 
 ### Specific Test Execution
 - To run a specific test file:
-  - **`docker-compose exec fastapi pytest /myapp/tests/test_specific_file.py`**
+  - **`docker compose exec fastapi pytest /myapp/tests/test_specific_file.py`**
 
 ### Running Tests with Coverage
 - For executing tests with coverage reports:
-  - **`docker-compose exec fastapi pytest --cov=myapp`**
+  - **`docker compose exec fastapi pytest --cov=myapp`**
   - To generate an HTML coverage report:
-    - **`docker-compose exec fastapi pytest --cov=myapp --cov-report=html`**
+    - **`docker compose exec fastapi pytest --cov=myapp --cov-report=html`**
 
 ## Resetting the Testing Environment
 - If you need to reset your environment, e.g., to clear test data:
   - **Stop all services and remove volumes**:
-    - **`docker-compose down -v`**
+    - **`docker compose down -v`**
   - **Restart the services**:
-    - **`docker-compose up -d`**
+    - **`docker compose up -d`**
 
 ## Docker Basics
 
 ### Building Docker Images
 - To build a Docker image for your FastAPI application, ensure you have a Dockerfile in the same directory as your `docker-compose.yml`. Then run:
-  - **`docker-compose build`**
+  - **`docker compose build`**
 
 ## Pushing Images to Docker Hub
 
@@ -88,11 +88,11 @@ This guide will walk you through the process of using Docker Compose to manage a
 
 ### Viewing Logs
 - To view logs for troubleshooting or monitoring application behavior:
-  - **`docker-compose logs -f`**
+  - **`docker compose logs -f`**
   - The `-f` flag tails the log output.
 
 ### Shutting Down
 - To stop and remove all running containers:
-  - **`docker-compose down`**
+  - **`docker compose down`**
 
 This guide is structured to provide clear, step-by-step instructions on how to interact with the Dockerized environment defined by your Docker Compose setup, ideal for educational purposes and ensuring students are well-equipped to manage their development environment effectively.
