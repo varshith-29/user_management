@@ -6,3 +6,7 @@ qr_codes
 .vscode
 .env
 .coverage
+
+.secret
+
+minio_data/
