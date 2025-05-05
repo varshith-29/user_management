@@ -23,6 +23,7 @@ from datetime import timedelta
 from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException, Response, status, Request
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from pydantic import ValidationError
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.dependencies import get_current_user, get_db, get_email_service, require_role
 from app.schemas.pagination_schema import EnhancedPagination
@@ -194,10 +195,29 @@ async def list_users(
 
 @router.post("/register/", response_model=UserResponse, tags=["Login and Registration"])
 async def register(user_data: UserCreate, session: AsyncSession = Depends(get_db), email_service: EmailService = Depends(get_email_service)):
-    user = await UserService.register_user(session, user_data.model_dump(), email_service)
-    if user:
-        return user
-    raise HTTPException(status_code=400, detail="Email already exists")
+    # user = await UserService.register_user(session, user_data.model_dump(), email_service)
+     # if user:
+     #     return user
+     # raise HTTPException(status_code=400, detail="Email already exists")
+     try:
+         user = await UserService.register_user(session, user_data.model_dump(), email_service)
+         if user:
+             return user
+         raise HTTPException(
+             status_code=400,
+             detail="Email already exists"
+         )
+     except ValidationError as e:
+         raise HTTPException(
+             status_code=422,
+             detail=str(e)
+         )
+     except Exception as e:
+         # logger.error(f"Registration error: {e}")
+         raise HTTPException(
+             status_code=500,
+             detail="An error occurred during registration"
+         )
 
 @router.post("/login/", response_model=TokenResponse, tags=["Login and Registration"])
 async def login(form_data: OAuth2PasswordRequestForm = Depends(), session: AsyncSession = Depends(get_db)):
