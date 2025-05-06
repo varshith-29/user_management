@@ -1,10 +1,10 @@
-# The User Management System Final Project: Your Epic Coding Adventure Awaits! 🎉✨🔥
+# The User Management System Final Project
 
 ## Features Implemented
 
-1. Profile Picture Upload with Minio - Done
-2. 
-=======
+1. Profile Picture Upload with Minio
+2. Additional Features
+
 # Reflection Document
 
 ## Project Overview
