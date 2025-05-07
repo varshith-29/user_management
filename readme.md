@@ -14,20 +14,18 @@ Throughout this project, I have learned:
 
 | Requirement | Delivered |
 |:---|:---|
-| **Feature Implemented** | [Profile Picture Upload with Minio](https://github.com/varshith-29/user_management/commit/8e4f1df) |
+| **Feature Implemented** | [Profile Picture Upload with Minio](https://github.com/varshith-29/user_management/commit/2255667c35224006f943bca5cb943de9ede262cf) |
 | **DockerHub Deployment** | [Docker Repository Link](https://hub.docker.com/repository/docker/varshithveluru/user_management/general) |
 | **QA Issues** | [Closed via commits fixing pytest issues and password validation](https://github.com/varshith-29/user_management/pull/7) |
-| **New Tests** | [Tests added for Profile Picture Upload](https://github.com/varshith-29/user_management/commit/4052b68) |
+| **New Tests** | [Tests added for Profile Picture Upload](https://github.com/varshith-29/user_management/commit/6795c71e7fe4a441cd364d055e260925de4812b2) |
 | **Successful CI/CD Pipeline** | GitHub Actions set up for tests, Docker build, and vulnerability scanning |
 
 ## Highlighted Commits & Pull Requests
 - **Profile Picture Upload Feature**:
-  - [Commit: Added Endpoint for Profile Picture Upload using Minio](https://github.com/varshith-29/user_management/commit/8e4f1df)
-  - [Commit: Added Tests for Profile Picture Upload](https://github.com/varshith-29/user_management/commit/4052b68)
+  - [Commit: Added Endpoint for Profile Picture Upload using Minio](https://github.com/varshith-29/user_management/commit/2255667c35224006f943bca5cb943de9ede262cf)
+  - [Commit: Added Tests for Profile Picture Upload](https://github.com/varshith-29/user_management/commit/6795c71e7fe4a441cd364d055e260925de4812b2)
   - [Commit: Added Minio setup using Docker](https://github.com/varshith-29/user_management/commit/3dfc356)
 
-- **Password Validation QA Fix**:
-  - [Pull Request: Password must be 8-24 characters long with required constraints](https://github.com/varshith-29/user_management/pull/8)
 
 - **CI/CD Implementation**:
   - Build, Test, Push to DockerHub and Scan using Trivy (integrated in `.github/workflows/ci-cd.yml`).
