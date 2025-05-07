@@ -1,4 +1,3 @@
-
 # Reflection Document
 
 ## Project Overview
